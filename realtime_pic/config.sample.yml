@@ -1,0 +1,24 @@
+---
+## Segmentation
+video_input: 0              # Input Must be OpenCV readable
+video_input_rstp1: 'rtsp://admin:As123456@192.168.30.14:554/live/0/MAIN'  # input with rtsp stream
+video_input_rstp2: 'rtsp://admin:As123456@192.168.30.64:554/live/0/MAIN'  # input with rtsp stream
+video_input_mp4: 'C:/Users/admin/PycharmProjects/pythonProject/w2e.mp4'   #  input with mp4 file
+video_output: 'rtsp://admin:As123456@192.168.30.14:554/live/0/MAIN'
+
+pic_fusion_ratio : 0.7 # 比例越小， 车路运一体化视角就越大，不能小于0
+fps_interval: 20             # Interval [s] to print fps of the last interval in console
+alpha: 0.84                  # mask overlay factor
+bbox : True                 # compute boundingbox in postprocessing
+minArea: 500                # min Pixel Area to apply bounding boxes (avoid noise)
+
+## Testing
+image_path: 'test_images'   # path for test.py test_images
+cpu_only: False             # CPU Placement for speed test
+
+## Model
+model_name: 'deeplabv3_mnv2_pascal_train_aug_2018_01_29'
+model_path: 'models/deeplabv3_mnv2_pascal_train_aug/frozen_inference_graph.pb'
+img_save_path1: 'E:/seg_img_dir/cam1'
+img_save_path2: 'E:/seg_img_dir/cam2'
+download_base: 'http://download.tensorflow.org/models/'
